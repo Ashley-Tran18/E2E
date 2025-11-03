@@ -24,3 +24,20 @@ class BasePage:
     
     def get_text(self, locator):
         return self.find_element(locator).text
+    
+    def wait_for_element_visible(self, locator, timeout=None):
+        timeout = timeout or self.timeout
+        return WebDriverWait(self.driver, timeout).until(
+            EC.visibility_of_element_located(locator)
+        )
+    
+    def wait_and_click(self, locator, timeout = None):
+        timeout = timeout or self.timeout
+        element = WebDriverWait(self.driver, timeout).until(
+            EC.visibility_of_element_located(locator)
+        )
+        element.click()
+
+    def wait_and_find_element(self, locator):
+        # chờ element hiển thị rồi trả về element
+        return self.wait_for_element_visible(locator)

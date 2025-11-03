@@ -9,5 +9,5 @@ class CollectionsPage(BasePage):
 
 
     def navigate_to_categories_page(self):
-        self.click(self.categories_menu)
+        self.wait_and_click(self.categories_menu)
 
