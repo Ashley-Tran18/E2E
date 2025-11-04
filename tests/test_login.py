@@ -16,5 +16,6 @@ class TestLogin(BaseTest):
         assert "admin" in self.driver.current_url.lower()
         print("✅ Login thành công!")
 
-        # Lưu cookies
+        # # Lưu cookies
         CookieManager.save_cookies(self.driver)
+

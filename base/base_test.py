@@ -29,16 +29,15 @@ class BaseTest:
         self.driver.get(base_url)
         self.driver.maximize_window()
 
-        # Load cookies nếu có — tự động bỏ qua login
-        cookies_loaded = CookieManager.load_cookies(self.driver, base_url)
-        if cookies_loaded:
-            print("✅ Cookies found → Skip login")
-            self.driver.refresh()
-        else:
-            print("⚠️ No cookies found → Manual login required first time")
-        
         # Cho phép các class test kế thừa sử dụng driver
         request.cls.driver = self.driver
         yield
         self.driver.quit()
         
+
+    # @pytest.fixture(autouse=True)
+    def login_with_cookies(self, driver):
+        # Load cookies cho mọi test
+        self.load_cookies(driver, "https://e2e.evershop.app/")
+        # Đảm bảo đã vào trang cần test
+        driver.get("https://e2e.evershop.app/admin")
