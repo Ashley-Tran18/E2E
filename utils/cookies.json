@@ -1,0 +1,12 @@
+[
+  {
+    "domain": "e2e.evershop.app",
+    "expiry": 1762314104,
+    "httpOnly": true,
+    "name": "asid",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "s%3AaUEdUdbE44MPdOXP-yX7SqNgcmnPp0EG.NQsUt1THTy45tUYNYjewo453ijf6Y%2FmsuY9HMi%2B5i%2B8"
+  }
+]
