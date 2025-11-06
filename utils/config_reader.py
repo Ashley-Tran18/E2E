@@ -21,10 +21,10 @@ class ConfigReader:
     def get_timeout():
         return int(ConfigReader.load_config()['timeout'])
 
-    # @staticmethod
-    # def get_email_password():
-    #     config = ConfigReader.load_config()
-    #     return config['email'], config['password']
+    @staticmethod
+    def get_email_password():
+        config = ConfigReader.load_config()
+        return config['email'], config['password']
 
     @staticmethod
     def get_credentials():
@@ -51,8 +51,8 @@ class ConfigReader:
         return attempts
 
     @staticmethod
-    def get_user_information():
-        return ConfigReader.load_config()['pages_url']
+    def get_collection_data():
+        return ConfigReader.load_config()['collection_data']
     
 
     

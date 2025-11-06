@@ -1,12 +1,18 @@
 {
   "base_url": "https://e2e.evershop.app/admin/login",
   "timeout": "30",
+  "email": "admin@e2eevershop.com",
+  "password": "A0F4IQUHPvgOsZ44",
  
  "credentials":{
     "invalid_email": "admin@e2eevershop.com",
-    "invalid_password": "A0F4IQUHPvgOs4",
+    "invalid_password": "A0F4IQUHPvgOs41",
     "email": "admin@e2eevershop.com",
     "password": "A0F4IQUHPvgOsZ44"
+},
+"collection_data": {
+    "collection_name": "collection test 1",
+    "collection_code": "colection_code_1",
+    "collection_des": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
 }
 }
-

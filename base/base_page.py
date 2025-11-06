@@ -59,3 +59,9 @@ class BasePage:
             return error_element.text
         except TimeoutException:
             return False
+    
+    def presence_of_element(self, locator, timeout=None):
+        timeout = timeout or self.timeout
+        return WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(locator)
+        )
