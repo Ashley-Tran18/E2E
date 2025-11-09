@@ -10,7 +10,12 @@ class BasePage:
      
     def find_element(self, locator):
         return WebDriverWait(self.driver, self.timeout).until(
-            lambda d: d.find_element(*locator)
+            lambda d: d.find_element(locator)
+        )
+    
+    def find_elements(self, locator):
+        return WebDriverWait(self.driver, self.timeout).until(
+            lambda d: d.find_elements(*locator)
         )
 
     def click(self, locator):
@@ -24,7 +29,7 @@ class BasePage:
         self.wait_for_element_visible(locator).send_keys(text)
     
     def get_text(self, locator):
-        return self.wait_for_element_visible(locator).text
+        return self.presence_of_element(locator).text
     
     def wait_for_element_visible(self, locator, timeout=None):
         timeout = timeout or self.timeout
@@ -39,9 +44,10 @@ class BasePage:
         )
         element.click()
 
-    def wait_and_find_element(self, locator):
+    def wait_and_find_elements(self, locator, timeout=None):
+        timeout = timeout or self.timeout
         # chờ element hiển thị rồi trả về element
-        return self.wait_for_element_visible(locator)
+        return WebDriverWait(self.driver, timeout).until(EC.presence_of_all_elements_located(locator))
     
     def verify_text(self, locator, expected_text):
         element = WebDriverWait(self.driver, 10).until(
@@ -62,6 +68,19 @@ class BasePage:
     
     def presence_of_element(self, locator, timeout=None):
         timeout = timeout or self.timeout
-        return WebDriverWait(self.driver, 10).until(
+        return WebDriverWait(self.driver, timeout).until(
             EC.presence_of_element_located(locator)
         )
+    
+   
+    def wait_for_page_loaded(self, timeout=None):
+        timeout = timeout or self.timeout
+        """
+        Chờ trang load hoàn toàn (document.readyState = 'complete')
+        """
+        try:
+            WebDriverWait(self.driver, timeout).until(
+                lambda d: d.execute_script("return document.readyState") == "complete"
+            )
+        except TimeoutException:
+            print("⚠️ Warning: Page did not finish loading within timeout")
