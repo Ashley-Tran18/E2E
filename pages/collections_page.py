@@ -5,9 +5,7 @@ from utils.config_reader import ConfigReader
 from pages.login_page import LoginPage
 from time import sleep
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException, NoSuchElementException
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+
 
 class CollectionsPage(BasePage, BaseLocator):
     def __init__(self, driver):
@@ -23,10 +21,10 @@ class CollectionsPage(BasePage, BaseLocator):
         "Step 2: Navigate to Collections page"
         self.wait_and_click(self.collections_menu)
 
-    
     def create_new_collection(self):
         "Step 3: Create a new Collection"
         self.wait_and_click(self.new_collections_btn)    
+        sleep(2)
 
     def add_collection_data_and_submit(self, collection_data):
         "Step 4: Add collection data & submit"
@@ -45,11 +43,11 @@ class CollectionsPage(BasePage, BaseLocator):
         # submit
         self.wait_and_click(self.add_collection_btn)
    
-    # def verify_collection_created_successfully(self):
-    """Verify the collection created successfully"""
-    """Show toast message"""
-    #     sleep(1)
-    #     return self.wait_for_element_visible(self.collection_created_msg)
+    def verify_collection_created_successfully(self):
+        """Verify the collection created successfully"""
+        """Show toast message"""
+        sleep(1)
+        return self.wait_for_element_visible(self.collection_created_msg)
 
     """Or redirect to edit page"""
     def verify_redirect_to_collection_edit_page(self):
@@ -106,11 +104,10 @@ class CollectionsPage(BasePage, BaseLocator):
                 try:
                     self.click(self.collection_confirm_del_btn)
                     print("🔴 Confirmed Delete")
+                    sleep(2)
                 except:
                     print("⚠️ No confirmation popup found")
-
                 return
-            sleep(5)
         else:
             raise Exception(f"❌ Collection name not found: {expected_name}")
         

@@ -23,7 +23,6 @@ class LoginPage(BasePage, BaseLocator):
         except:
             return False
 
-        
     def get_login_error_message(self):
          "Verify error message appears when entering invalid password"
          self.get_error_message(self.login_error_message)

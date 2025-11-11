@@ -19,11 +19,13 @@ class TestLogin(BaseTest):
 
             if login_page.is_logged_in():
                 print(f"✅ Login successful on attempt {index}")
+                self.driver.save_screenshot("login_success.png")
                 logged_in = True
                 break
             else:
                 error_text = login_page.get_login_error_message() 
                 print(f"❌ Error message (attempt {index}): {error_text}")
+                self.driver.save_screenshot("login_failed.png")
                 # self.driver.refresh()
         assert logged_in, "❌ Login failed after all attempts"
 

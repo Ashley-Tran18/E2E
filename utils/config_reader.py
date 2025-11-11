@@ -54,6 +54,10 @@ class ConfigReader:
     def get_collection_data():
         return ConfigReader.load_config()['collection_data']
     
+    @staticmethod
+    def get_product_data():
+        return ConfigReader.load_config()['product_data']
+    
 
     
 

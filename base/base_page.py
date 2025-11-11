@@ -2,6 +2,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from utils.config_reader import ConfigReader
 from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.common.action_chains import ActionChains
 
 class BasePage:
     def __init__(self, driver):
@@ -84,3 +85,21 @@ class BasePage:
             )
         except TimeoutException:
             print("⚠️ Warning: Page did not finish loading within timeout")
+
+
+
+    def hover_to_element(self, locator):
+        """Hover đến element bằng locator"""
+        element = self.wait_for_element_visible(locator)
+        self.actions.move_to_element(element).perform()
+        return element  # Trả về element để dùng tiếp nếu cần
+
+    def click_with_hover(self, hover_locator, click_locator):
+        """Hover đến phần tử cha, rồi click phần tử con"""
+        self.hover_to_element(hover_locator)
+        element_to_click = self.wait_for_element_visible(click_locator)
+        self.actions.move_to_element(element_to_click).click().perform()
+
+    def reset_actions(self):
+        """Reset chuỗi hành động (nếu cần dùng lại sạch)"""
+        self.actions = ActionChains(self.driver)
