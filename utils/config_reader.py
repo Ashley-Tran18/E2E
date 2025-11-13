@@ -61,6 +61,10 @@ class ConfigReader:
     @staticmethod
     def get_category_data():
         return ConfigReader.load_config()['category_data']
+    
+    @staticmethod
+    def get_attribute_data():
+        return ConfigReader.load_config()['attribute_data']
 
         
         

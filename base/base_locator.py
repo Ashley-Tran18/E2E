@@ -10,7 +10,7 @@ class BaseLocator:
         # General Locators
         self.toast_msg = (By.XPATH, "//div[contains(@class, 'Toastify__toast-container')]")
         self.save_btn = (By.XPATH, "//div[@class = 'form-submit-button flex border-t border-divider mt-4 pt-4 justify-between']//button[@class = 'button primary']")
-
+        self.edit_back_btn = (By.XPATH, "//div[contains(@class, 'flex justify-start')]//span[@class = 'flex items-center justify-center']")
         
         # Login Page Locators
         self.email_input = (By.XPATH, "//div[@class = 'form-field']//input[@id = 'field-email']")
@@ -111,7 +111,7 @@ class BaseLocator:
         self.attribute_default_group = (By.XPATH, "//div[@class = 'css-1nmdiq5-menu']//div[@class = 'css-d7l1ni-option']")
         self.attribute_group_input = (By.XPATH, "//div[@class = 'grid gap-5 grid-cols-1']")
         self.attribute_sort_order_input = (By.XPATH, "//div[@class= 'form-field']//input[@id = 'field-sort_order']")
-        
+        self.attribute_table = (By.XPATH, "//table//tr/td[2]//a")
 
 
 

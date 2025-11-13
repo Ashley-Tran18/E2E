@@ -19,12 +19,12 @@ class TestAttributes(BaseTest):
 
         "Step 3: Create a new Collection"
         attribute.create_new_attribute()
-        # attribute.add_category_data_and_submit(ConfigReader.get_category_data)
+        attribute.add_attribute_data_and_submit(ConfigReader.get_attribute_data)
 
-        # """ Verify the category created successfully"""
-        # category.verify_category_created_successfully()
+        """ Verify the attribute created successfully"""
+        attribute.verify_attribute_created_successfully()
 
-        # """ Verify the newly category added"""
-        # category.verify_new_category_added(ConfigReader.get_category_data)
-        # self.driver.save_screenshot("new category added.png")
+        """ Verify the newly category added"""
+        attribute.verify_new_attribute_added(ConfigReader.get_attribute_data)
+        self.driver.save_screenshot("new attribute added.png")
        

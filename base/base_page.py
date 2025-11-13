@@ -5,6 +5,7 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.action_chains import ActionChains
 from base.base_locator import BaseLocator
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
 import os
 
 class BasePage:
@@ -55,7 +56,13 @@ class BasePage:
         timeout = timeout or self.timeout
         # chờ element hiển thị rồi trả về element
         return WebDriverWait(self.driver, timeout).until(EC.presence_of_all_elements_located(locator))
-    
+
+    # Hàm Select
+    def select_dropdown_by_text(self, select_locator, visible_text):
+        select_element = self.find_element(*select_locator)
+        select = Select(select_element)
+        select.select_by_visible_text(visible_text)
+
     def verify_text(self, locator, expected_text):
         element = WebDriverWait(self.driver, 10).until(
             EC.visibility_of_element_located(locator)
@@ -120,8 +127,6 @@ class BasePage:
             print(f"❌ Upload failed: {str(e)}")
 
 
-
-
     def hover_to_element(self, locator):
         """Hover đến element bằng locator"""
         element = self.wait_for_element_visible(locator)
@@ -137,7 +142,6 @@ class BasePage:
     def reset_actions(self):
         """Reset chuỗi hành động (nếu cần dùng lại sạch)"""
         self.actions = ActionChains(self.driver)
-
 
     # --- Hàm chờ trang load cơ bản ---
     def wait_for_page_loaded(self, timeout=None):
