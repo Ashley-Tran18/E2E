@@ -40,7 +40,37 @@
     "attribute_name": "Quality",
     "attribute_code": "attribute_code_1",
     "attribute_sort_order": "1"
+},
+  "coupon_data": [
+    {
+      "coupon_code": "FIX50",
+      "coupon_description": "50$ off entire order",
+      "coupon_amount": "50",
+      "coupon_discount_type": "fixed_discount_to_entire_order"
+    },
+    {
+      "coupon_code": "SAVE10",
+      "coupon_description": "10% off entire order",
+      "coupon_amount": "10",
+      "coupon_discount_type": "percentage_discount_to_entire_order"
+    },
+    {
+      "coupon_code": "FIX20",
+      "coupon_description": "20$ off entire order",
+      "coupon_amount": "50",
+      "coupon_discount_type": "fixed_discount_to_specific_products"
+    },
+    {
+      "coupon_code": "SPEC20",
+      "coupon_description": "20% off specific products",
+      "coupon_amount": "20",
+      "coupon_discount_type": "percentage_discount_to_specific_products"
+    },
+    {
+      "coupon_code": "BUY1GET1",
+      "coupon_description": "Buy 1 get 1 free",
+      "coupon_amount": "0",
+      "coupon_discount_type": "buy_x_get_y"
+    }
+  ]
 }
-}
-
-

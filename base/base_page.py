@@ -209,3 +209,6 @@ class BasePage:
         raise AssertionError(
             f"❌ Record '{expected_name}' not found in table. Got: {record_names}"
         )
+    
+
+

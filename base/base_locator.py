@@ -114,6 +114,30 @@ class BaseLocator:
         self.attribute_table = (By.XPATH, "//table//tr/td[2]//a")
 
 
+        # Coupons Page Locators
+        self.coupons_menu = (By.XPATH, "//li[@class='root-nav-item nav-item']//a[@href='https://e2e.evershop.app/admin/coupons']")
+        self.new_coupon_btn = (By.XPATH, "//div[@class = 'flex justify-end space-x-2 items-center']//span[text() = 'New Coupon']")
+        self.coupon_code_input = (By.XPATH, "//div[@class = 'form-field']//input[@id = 'field-coupon']")
+        self.coupon_des_input = (By.XPATH, "//div[@class = 'form-field undefined']//textarea[@id = 'field-description']")
+        self.coupon_amount_input = (By.XPATH, "//div[@class = 'form-field']//input[@id = 'field-discount_amount']")
+        self.coupon_start_date_input = (By.XPATH, "//div[@class = 'form-field undefined']//input[@id = 'field-start_date']")
+        self.coupon_end_date_input = (By.XPATH, "//div[@class = 'form-field undefined']//input[@id = 'field-end_date']")
+        self.coupon_free_ship_checkbox = (By.XPATH, "//div[@class = 'checkbox-item']//input[@id = 'field-free_shipping']")
+        self.fixed_discount_to_entire_order = (By.XPATH, "//div[@class = 'radio-item']//input[@id = 'field-discount_type-fixed_discount_to_entire_order']")
+        self.percentage_discount_to_entire_order = (By.XPATH, "//div[@class = 'radio-item']//input[@id = 'field-discount_type-percentage_discount_to_entire_order']")
+        self.fixed_discount_to_specific_products = (By.XPATH, "//div[@class = 'radio-item']/input[@id='field-discount_type-fixed_discount_to_specific_products']")                                    
+        self.percentage_discount_to_specific_products = (By.XPATH, "//div[@class = 'radio-item']//input[@id = 'field-discount_type-percentage_discount_to_specific_products']")
+        self.buy_x_get_y = (By.XPATH, "//div[@class = 'radio-item']//input[@id = 'field-discount_type-buy_x_get_y']")
+        self.max_target_product_input = (By.XPATH, "//div[@class = 'form-field form-field mb-0']//input[@id = 'field-target_products.maxQty']")
+        self.add_target_product_btn = (By.XPATH, "//h3[text() = 'Target products']/following-sibling::div//div[@class = 'pl-2']")
+
+
+
+
+
+
+
+
 
 # //     {
 # //         "product_name": "Modern Dining Table",

@@ -66,6 +66,9 @@ class ConfigReader:
     def get_attribute_data():
         return ConfigReader.load_config()['attribute_data']
 
+    @staticmethod
+    def get_coupon_data():
+        return ConfigReader.load_config()['coupon_data']
         
         
 
